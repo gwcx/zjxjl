@@ -1,0 +1,73 @@
+<!-- HTML5文件 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="telephone=no,email=no" name="format-detection">
+<meta name="wap-font-scale" content="no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+<meta name="apple-mobile-web-app-capable" content="yes">  
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>玖趣游戏</title>
+<link rel="shortcut icon" href="http://wap.521jw.com/public/images/logo.ico">
+<link href="../public/css/weui.min_facc942.css" rel="stylesheet" type="text/css">
+<link href="../public/css/jquery-weui.min_d9d2dda.css" rel="stylesheet" type="text/css">
+<link href="../public/css/mui.min_f18820f.css" rel="stylesheet" type="text/css">
+<!-- 公用样式css -->
+<link href="../public/css/base_cb5f96f.css" rel="stylesheet" type="text/css">
+<!-- 界面引入css -->
+<link href="../public/css/app/game/server_3b7ffea.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- header -->
+<header class="header">
+  <a href="../index.html" class="lf-icon"><img src="../public/images/icon/icon_home_3ba4412.png"></a>
+  <h1 class="title">游戏开服</h1>
+</header>
+<!-- main -->
+<div class="main">
+    <div class="server-model">
+        <div class="content" id="server_data_content">
+            <script id="server_data" type="text/html">
+                <% for (var i = 0; i < server.length; i ++) { %>
+                    <li>
+                        <div class="icon">
+                            <a href="detail.html?gameId=<%= server[i].game_id %>"><img src="<%= entityUrl %>/<%= server[i].game_icon %>" /></a>
+                        </div>
+                        <div class="name">
+                            <a href="detail.html?gameId=<%= server[i].game_id %>">
+                                <p class="t1">
+                                    <%= server[i].game_name %>
+                                    (
+                                    <% if(server[i].platform==1){ %> 安卓 <% } %>
+                                    <% if(server[i].platform==2){ %> IOS <% } %>
+                                    <% if(server[i].platform==3){ %> 安卓 +  IOS <% } %>
+                                    )
+                                </p>
+                                <p class="t2">
+                                    <%= server[i].server_name %> |
+                                    <span><% if(server[i].is_open==1){ %> 已经开服 <% } %><% else{ %> 即将开服 <% } %></span>
+                                </p>
+                                <p class="t3"><%= server[i].open_time %></p>
+                            </a>
+                        </div>
+                        <div class="btn">
+                            <a href="detail.html?gameId=<%= server[i].game_id %>">专区</a>
+                        </div>
+                    </li>
+                <% } %>
+            </script>
+        </div>
+    </div>
+
+</div>
+<!-- jquery引入 -->
+<script type="text/javascript" src="../public/js/jquery/jquery_8764c01.js"></script>
+<!-- weui 引入 -->
+<script type="text/javascript" src="../public/js/jquery/jquery-weui_035717c.js"></script>
+<!-- 界面引入 -->
+<script type="text/javascript" src="../public/js/jquery/template_07afd04.js"></script>
+</body>
+</html>
